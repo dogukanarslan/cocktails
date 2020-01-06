@@ -9,7 +9,7 @@ export default class Index extends React.Component{
     this.state={
       datas: this.props.datas.drinks,
       _datas: this.props.datas.drinks,
-      options: this.props.test,
+      options: this.props.options,
     }
     this.searchDrink = this.searchDrink.bind(this);
     this.sortItems = this.sortItems.bind(this);
@@ -106,7 +106,7 @@ Index.getInitialProps = async (context) => {
 
 
   return {
-    test: optionsRes,
+    options: optionsRes,
     datas: datasRes
   }
 }
