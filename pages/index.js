@@ -29,8 +29,8 @@ export default class Index extends React.Component{
     } else if (sort === "strDrink"){
 
       this.setState({datas: this.state._datas.sort(function(a,b){
-        var x = a[sort].toLowerCase();
-        var y = b[sort].toLowerCase();
+        let x = a[sort].toLowerCase();
+        let y = b[sort].toLowerCase();
         if (x < y) {return -1;}
         if (x > y) {return 1;}
         return 0;
