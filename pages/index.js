@@ -1,4 +1,4 @@
-import Fetch from "isomorphic-unfetch";
+import React from 'react';
 import Link from "next/link";
 import Layout from "../components/Layout";
 import SearchBar from "../components/SearchBar";
@@ -7,9 +7,8 @@ export default class Index extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      datas: this.props.datas.drinks,
-      _datas: this.props.datas.drinks,
-      options: this.props.options,
+      datas: this.props.drinks,
+      _datas: this.props.drinks,
     }
     this.searchDrink = this.searchDrink.bind(this);
     this.sortItems = this.sortItems.bind(this);
@@ -43,7 +42,7 @@ export default class Index extends React.Component{
     return(
       <Layout>
           <div className="container">
-            <SearchBar sortItems = {this.sortItems} searchDrink = {this.searchDrink} selectedChange={this.selectedChange} options={this.state.options}/>
+            <SearchBar sortItems = {this.sortItems} searchDrink = {this.searchDrink} selectedChange={this.selectedChange}/>
             <div className="Drinks">
               <div className="row">
                 <div className="col-12">
@@ -82,31 +81,19 @@ export default class Index extends React.Component{
 
 
 
-Index.getInitialProps = async (context) => {
-
-  const options = await fetch
-  ("https://the-cocktail-db.p.rapidapi.com/list.php?c=list", {
-  	"method": "GET",
-  	"headers": {
-  		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-  		"x-rapidapi-key": "9625f60069msh7df0d5a3ae5a4ddp1d759ejsn0cce4042f495"
-  	}
-  })
-  const optionsRes = await options.json();
-
+export const getStaticProps = async () => {
   const datas = await fetch
   (`https://the-cocktail-db.p.rapidapi.com/filter.php?c=Ordinary Drink`, {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-		"x-rapidapi-key": "9625f60069msh7df0d5a3ae5a4ddp1d759ejsn0cce4042f495"
+		"x-rapidapi-host": process.env.API_HOST,
+		"x-rapidapi-key": process.env.API_KEY
 	}
   })
   const datasRes = await datas.json();
 
 
   return {
-    options: optionsRes,
-    datas: datasRes
+    props: datasRes
   }
 }
