@@ -1,8 +1,10 @@
-import Link from "next/link"
+import Link from 'next/link';
+
+import styles from 'styles/Navbar.module.css';
 
 const Navbar = () => (
-  <nav className="navbar navbar-expand navbar-dark bg-dark">
-    <a href="/" className="navbar-brand">COCKTAILS</a>
+  <nav className={styles.navbar}>
+    <Link href="/">COCKTAILS</Link>
   </nav>
 );
 

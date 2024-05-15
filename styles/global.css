@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #025464;
+  --secondary-color: #e57c23;
+  --light-color: #f8f1f1;
+}
+
+html {
+  font-family: var(--font-inter);
+}
+
+html * {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-color);
+}
+
+.container {
+  padding: 16px;
+}
