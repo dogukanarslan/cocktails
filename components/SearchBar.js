@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default class SearchBar extends React.Component{
 
   constructor(props){
@@ -37,17 +39,6 @@ export default class SearchBar extends React.Component{
           </div>
         </div>
 
-
-          <div className="col">
-              <div className="form-group">
-                <label htmlFor="cocktailFilter">Drink Type </label>
-                <select className="form-control" id="cocktailFilter" onChange={(event)=> this.selectedChange(event)}>
-                  {this.state.options.drinks.map(item => {
-                    return <option key={item.strCategory} value={item.strCategory}>{item.strCategory}</option>;
-                  })}
-                </select>
-              </div>
-            </div>
 
             <div className="col">
               <div className="form-group">
