@@ -1,63 +1,35 @@
-'use client'
+'use client';
 
-import React from 'react';
+import { useState } from 'react';
 
-export default class SearchBar extends React.Component{
+const SearchBar = () => {
+  const [searchValue, setSearchValue] = useState('');
+  const [sortType, setSortType] = useState('name');
 
-  constructor(props){
-    super(props)
-    this.state={
-      options: this.props.options,
-      searchValue:"",
-      currentFilter: "Ordinary Drink"
-    }
-    this.searchDrink = this.searchDrink.bind(this);
-    this.sortItems = this.sortItems.bind(this);
-  }
+  return (
+    <form>
+      <div>
+        <label htmlFor="search">Drink Name</label>
+        <input
+          id="search"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </div>
 
-  selectedChange(event){
-    this.props.selectedChange(event.target.value);
-  }
+      <div>
+        <label htmlFor="sort">Sort by</label>
+        <select
+          id="sort"
+          onChange={(e) => setSortType(e.target.value)}
+          value={sortType}
+        >
+          <option value="name">Name</option>
+          <option value="difficulty">Difficulty</option>
+        </select>
+      </div>
+    </form>
+  );
+};
 
-  searchDrink(event){
-    this.setState({searchValue: event.target.value},()=>this.props.searchDrink(this.state.searchValue))
-  }
-
-  sortItems(event){
-    this.props.sortItems(event.target.value);
-  }
-
-  sort
-
-  render(){
-    return(
-      <form>
-        <div className="row">
-
-        <div className="col">
-          <div className="form-group">
-            <label htmlFor="sort">Drink Name</label>
-            <input className="form-control" value={this.state.searchValue} onChange={(event) => this.searchDrink(event)} placeholder="Enter your drinks name..."/>
-          </div>
-        </div>
-
-
-            <div className="col">
-              <div className="form-group">
-                <label htmlFor="sort">Sort by</label>
-                <select className="form-control" id="sort" onChange={(event) => this.sortItems(event)}>
-                      <option value="strDrink">Name</option>
-                      <option value="idDrink">ID</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <style jsx>{`
-            label{
-              font-size: 1.4rem;
-            }
-          `}</style>
-      </form>
-    )
-  }
-}
+export default SearchBar;

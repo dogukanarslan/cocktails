@@ -1,43 +1,44 @@
 import Link from 'next/link';
 import Image from 'next/image';
+
 import SearchBar from 'components/SearchBar';
 
 import styles from 'styles/Cocktails.module.css';
 
 const getData = async () => {
-  const res = await fetch(
-    `https://the-cocktail-db.p.rapidapi.com/filter.php?c=Ordinary Drink`,
-    {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-host': process.env.API_HOST,
-        'x-rapidapi-key': process.env.API_KEY
-      }
+  const res = await fetch('https://the-cocktail-db3.p.rapidapi.com/', {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': process.env.API_HOST,
+      'x-rapidapi-key': process.env.API_KEY
     }
-  );
+  });
 
   return res.json();
 };
 
 const CocktailsPage = async () => {
-  const { drinks } = await getData();
+  const drinks = await getData();
 
   return (
     <>
       <SearchBar />
       <div className={styles.drinks}>
-        {drinks.map((item) => {
+        {drinks?.map((drink) => {
           return (
-            <div className={styles.card} key={item.idDrink}>
+            <div className={styles.card} key={drink.id}>
               <Image
-                src={item.strDrinkThumb}
+                src={drink.image}
                 alt="Drink image"
                 width={200}
                 height={200}
               />
               <div>
-                <p>{item.strDrink}</p>
-                <Link href={item.idDrink}>More Info</Link>
+                <p>{drink.title}</p>
+                <div>
+                  <span className={styles.badge}>{drink.difficulty}</span>
+                </div>
+                <Link href={drink.id}>View</Link>
               </div>
             </div>
           );
