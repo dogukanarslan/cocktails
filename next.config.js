@@ -1,6 +1,11 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['www.thecocktaildb.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'apipics.s3.amazonaws.com'
+      }
+    ]
   }
 };
