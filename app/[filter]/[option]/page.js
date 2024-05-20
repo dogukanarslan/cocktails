@@ -2,6 +2,8 @@ import { BASE_URL } from '../../../constants';
 import { Drinks } from 'components/Drinks';
 import SearchBar from 'components/SearchBar';
 
+import styles from 'styles/Cocktails.module.css';
+
 export const FILTERS = {
   alcoholic: 'a',
   category: 'c',
@@ -60,12 +62,14 @@ const CocktailsPage = async (props) => {
 
   return (
     <>
-      <SearchBar
-        categories={categories.drinks}
-        glasses={glasses.drinks}
-        alcoholicOptions={alcoholicOptions.drinks}
-        ingredients={ingredients.drinks}
-      />
+      <div className={styles.searchBar}>
+        <SearchBar
+          categories={categories.drinks}
+          glasses={glasses.drinks}
+          alcoholicOptions={alcoholicOptions.drinks}
+          ingredients={ingredients.drinks}
+        />
+      </div>
       <Drinks drinks={drinks} />
     </>
   );

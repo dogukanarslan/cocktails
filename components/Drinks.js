@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
-
+import { Button } from 'components/Button';
 import styles from 'styles/Drinks.module.css';
 
 export const Drinks = (props) => {
@@ -19,7 +18,7 @@ export const Drinks = (props) => {
             />
             <div>
               <p>{drink.strDrink}</p>
-              <Link href={`/cocktails/${drink.idDrink}`}>View</Link>
+              <Button href={`/cocktails/${drink.idDrink}`}>View</Button>
             </div>
           </div>
         );
