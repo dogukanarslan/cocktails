@@ -1,0 +1,7 @@
+.select {
+  display: block;
+  padding: 0.375rem 0.1rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-color: var(--gray-color);
+}

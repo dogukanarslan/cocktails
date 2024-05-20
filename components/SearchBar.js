@@ -3,6 +3,9 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from 'components/Button';
+import Select from 'components/Select';
+
+import styles from 'styles/SearchBar.module.css';
 
 const SearchBar = (props) => {
   const { categories, glasses, alcoholicOptions, ingredients } = props;
@@ -25,10 +28,10 @@ const SearchBar = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <div>
         <label htmlFor="searchBy">Search by</label>
-        <select
+        <Select
           id="searchBy"
           value={searchBy}
           required
@@ -38,12 +41,12 @@ const SearchBar = (props) => {
           <option value="glass">Glass</option>
           <option value="ingredient">Ingredient</option>
           <option value="alcoholic">Alcoholic</option>
-        </select>
+        </Select>
       </div>
 
       {searchBy === 'category' && (
         <div>
-          <select
+          <Select
             value={option}
             required
             onChange={(e) => setOption(e.target.value)}
@@ -54,13 +57,13 @@ const SearchBar = (props) => {
                 {category.strCategory}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
 
       {searchBy === 'glass' && (
         <div>
-          <select
+          <Select
             value={option}
             required
             onChange={(e) => setOption(e.target.value)}
@@ -71,13 +74,13 @@ const SearchBar = (props) => {
                 {glass.strGlass}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
 
       {searchBy === 'alcoholic' && (
         <div>
-          <select
+          <Select
             value={option}
             required
             onChange={(e) => setOption(e.target.value)}
@@ -88,20 +91,20 @@ const SearchBar = (props) => {
                 {option.strAlcoholic}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
 
       {searchBy === 'ingredient' && (
         <div>
-          <select value={option} onChange={(e) => setOption(e.target.value)}>
+          <Select value={option} onChange={(e) => setOption(e.target.value)}>
             <option value="">Select an ingredient</option>
             {ingredients.map((option) => (
               <option key={option.strIngredient1} value={option.strIngredient1}>
                 {option.strIngredient1}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
       <Button>Fetch</Button>

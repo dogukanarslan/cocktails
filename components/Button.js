@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from 'styles/Button.module.css';
 
 export const Button = (props) => {
-  let { children, tag: Tag = 'button', ...attributes } = props;
+  let { tag: Tag = 'button', ...attributes } = props;
 
   if (attributes.href) {
     Tag = Link;
@@ -13,8 +13,6 @@ export const Button = (props) => {
       type={Tag === 'button' && attributes.onClick ? 'button' : undefined}
       {...attributes}
       className={styles.btn}
-    >
-      {children}
-    </Tag>
+    />
   );
 };
