@@ -2,14 +2,13 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { Button } from 'components/Button';
 
 const SearchBar = (props) => {
   const { categories, glasses, alcoholicOptions, ingredients } = props;
 
   const router = useRouter();
   const params = useParams();
-
-  console.log(params);
 
   const [searchBy, setSearchBy] = useState(params.filter);
   const [option, setOption] = useState(decodeURI(params.option));
@@ -105,7 +104,7 @@ const SearchBar = (props) => {
           </select>
         </div>
       )}
-      <button>Fetch</button>
+      <Button>Fetch</Button>
     </form>
   );
 };
