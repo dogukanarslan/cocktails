@@ -1,15 +1,9 @@
 import Image from 'next/image';
-
+import { BASE_URL } from '../../../constants';
 import styles from 'styles/CocktailDetail.module.css';
 
 const getData = async (id) => {
-  const res = await fetch(`https://the-cocktail-db3.p.rapidapi.com/${id}`, {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-host': process.env.API_HOST,
-      'x-rapidapi-key': process.env.API_KEY
-    }
-  });
+  const res = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
 
   return res.json();
 };
@@ -19,39 +13,32 @@ const CocktailDetail = async (props) => {
     params: { id }
   } = props;
 
-  const drink = await getData(id);
+  const { drinks } = await getData(id);
+  const drink = drinks[0];
 
   return (
     <div className={styles.wrapper}>
       <Image
-        src={drink.image}
+        src={drink.strDrinkThumb}
         width="150"
         height="150"
         alt="Cocktail image"
         className={styles.image}
       />
-      <div>
-        <span className={styles.badge}>{drink.difficulty}</span>
-      </div>
 
       <div>
         <h1 className={styles.heading}>Name</h1>
-        <p>{drink.title}</p>
+        <p>{drink.strDrink}</p>
       </div>
 
       <div className={styles.info}>
-        <h1 className={styles.heading}>Time</h1>
-        <p>{drink.time}</p>
-      </div>
-
-      <div className={styles.info}>
-        <h1 className={styles.heading}>Portion</h1>
-        <p>{drink.portion}</p>
+        <h1 className={styles.heading}>Glass</h1>
+        <p>{drink.strGlass}</p>
       </div>
 
       <div className={styles.info}>
         <h1 className={styles.heading}>Instruction</h1>
-        <p>{drink.description || '-'}</p>
+        <p>{drink.strInstructions || '-'}</p>
       </div>
     </div>
   );

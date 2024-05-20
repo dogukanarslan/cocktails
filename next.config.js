@@ -4,7 +4,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'apipics.s3.amazonaws.com'
+        hostname: 'www.thecocktaildb.com'
       }
     ]
   }

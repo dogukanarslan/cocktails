@@ -1,34 +1,29 @@
-import Link from "next/link"
+import Link from 'next/link';
+import Image from 'next/image';
 
-export default class Drinks extends React.Component{
-  constructor(props){
-    super(props)
-    this.state={
-      datas: this.props.datas,
-    }
-  }
+import styles from 'styles/Drinks.module.css';
 
-  render(){
-    return(
-      <div className="Drinks">
-        <div className="row">
-        {this.state.datas.drinks.slice(0,12).map(item => {
-          return (
-            <div className="col-6 col-md-4" key={item.idDrink}>
-                <Link href="../pages/[id]" as={`../pages/${item.idDrink}`} className="navbar-brand">
-                <div className="card mb-5">
-                  <img className="card-img-top" src={item.strDrinkThumb} alt="..."/>
-                  <div className="card-body">
-                    <p className="card-text">{item.strDrink}</p>
-                    <button className="btn btn-dark btn-sm">More Info</button>
-                  </div>
-                </div>
-              </Link>
+export const Drinks = (props) => {
+  const { drinks } = props;
+
+  return (
+    <div className={styles.drinks}>
+      {drinks?.map((drink) => {
+        return (
+          <div className={styles.card} key={drink.idDrink}>
+            <Image
+              src={drink.strDrinkThumb}
+              alt="Drink image"
+              width={200}
+              height={200}
+            />
+            <div>
+              <p>{drink.strDrink}</p>
+              <Link href={`/cocktails/${drink.idDrink}`}>View</Link>
             </div>
-          )
-        })}
-        </div>
-      </div>
-    )
-  }
-}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
