@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BASE_URL } from '../../../constants';
+import { BASE_URL } from '../../constants';
 import styles from 'styles/CocktailDetail.module.css';
 
 const getData = async (id) => {

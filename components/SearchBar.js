@@ -1,20 +1,27 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from 'components/Button';
 import Select from 'components/Select';
 
 import styles from 'styles/SearchBar.module.css';
+import { DEFAULT_FILTER, DEFAULT_OPTION } from 'app/page';
 
 const SearchBar = (props) => {
   const { categories, glasses, alcoholicOptions, ingredients } = props;
 
   const router = useRouter();
-  const params = useParams();
+  const searchParams = useSearchParams();
 
-  const [searchBy, setSearchBy] = useState(params.filter);
-  const [option, setOption] = useState(decodeURI(params.option));
+  const [searchBy, setSearchBy] = useState(
+    searchParams.get('filter') || DEFAULT_FILTER
+  );
+  const [option, setOption] = useState(
+    searchParams.get('option')
+      ? decodeURI(searchParams.get('option'))
+      : DEFAULT_OPTION
+  );
 
   const changeFilter = (filter) => {
     setSearchBy(filter);
@@ -24,13 +31,12 @@ const SearchBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    router.push(`/${searchBy}/${option}`);
+    router.push(`/?filter=${searchBy}&option=${option}`);
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div>
-        <label htmlFor="searchBy">Search by</label>
         <Select
           id="searchBy"
           value={searchBy}

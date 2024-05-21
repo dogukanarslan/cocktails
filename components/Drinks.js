@@ -10,16 +10,16 @@ export const Drinks = (props) => {
       {drinks?.map((drink) => {
         return (
           <div className={styles.card} key={drink.idDrink}>
-            <Image
-              src={drink.strDrinkThumb}
-              alt="Drink image"
-              width={200}
-              height={200}
-            />
-            <div>
-              <p>{drink.strDrink}</p>
-              <Button href={`/cocktails/${drink.idDrink}`}>View</Button>
+            <div className={styles.imageWrapper}>
+              <Image
+                className={styles.image}
+                src={drink.strDrinkThumb}
+                alt="Drink image"
+                fill
+              />
             </div>
+            <h3 className={styles.title}>{drink.strDrink}</h3>
+            <Button href={`/${drink.idDrink}`}>View</Button>
           </div>
         );
       })}
