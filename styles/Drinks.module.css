@@ -1,3 +1,19 @@
 .drinks .card + .card {
   margin-top: 20px;
+  border-top: 1px solid var(--primary-color);
+  padding-top: 20px;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 300px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
