@@ -3,10 +3,18 @@
   overflow-y: auto;
 }
 
-.drinks .card + .card {
+.card {
+  border: 1px solid var(--gray-color);
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.card + .card {
   margin-top: 20px;
-  border-top: 1px solid var(--primary-color);
-  padding-top: 20px;
+}
+
+.cardBody {
+  padding: 1rem;
 }
 
 .imageWrapper {
@@ -16,9 +24,4 @@
 
 .image {
   object-fit: cover;
-}
-
-.title {
-  font-size: 1.2rem;
-  font-weight: 700;
 }
