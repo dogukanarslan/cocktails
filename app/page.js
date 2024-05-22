@@ -73,7 +73,9 @@ const CocktailsPage = async (props) => {
           ingredients={ingredients.drinks}
         />
       </div>
-      <Drinks drinks={drinks} />
+      <div className={styles.drinksWrapper}>
+        <Drinks drinks={drinks} />
+      </div>
     </div>
   );
 };

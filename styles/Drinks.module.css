@@ -1,6 +1,7 @@
 .drinks {
-  height: 100%;
-  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
 }
 
 .card {
@@ -9,19 +10,21 @@
   overflow: hidden;
 }
 
-.card + .card {
-  margin-top: 20px;
-}
-
 .cardBody {
   padding: 1rem;
 }
 
 .imageWrapper {
   position: relative;
-  height: 300px;
+  height: 150px;
 }
 
 .image {
   object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .drinks {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
