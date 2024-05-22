@@ -64,7 +64,7 @@ const CocktailsPage = async (props) => {
   const { drinks } = await getDrinks(filter, option);
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <div className={styles.searchBar}>
         <SearchBar
           categories={categories.drinks}
@@ -74,7 +74,7 @@ const CocktailsPage = async (props) => {
         />
       </div>
       <Drinks drinks={drinks} />
-    </>
+    </div>
   );
 };
 
