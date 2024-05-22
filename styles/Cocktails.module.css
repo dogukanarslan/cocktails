@@ -4,6 +4,11 @@
   flex-direction: column;
 }
 
+.drinksWrapper {
+  height: 100%;
+  overflow: auto;
+}
+
 .searchBar {
   margin-bottom: 20px;
 }
