@@ -1,3 +1,9 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .searchBar {
   margin-bottom: 20px;
 }

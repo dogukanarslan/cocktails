@@ -1,3 +1,8 @@
+.drinks {
+  height: 100%;
+  overflow-y: auto;
+}
+
 .drinks .card + .card {
   margin-top: 20px;
   border-top: 1px solid var(--primary-color);
