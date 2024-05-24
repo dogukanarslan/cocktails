@@ -36,7 +36,7 @@ const SearchBar = (props) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <div>
+      <div className={styles.inputs}>
         <Select
           id="searchBy"
           value={searchBy}
@@ -48,10 +48,8 @@ const SearchBar = (props) => {
           <option value="ingredient">Ingredient</option>
           <option value="alcoholic">Alcoholic</option>
         </Select>
-      </div>
 
-      {searchBy === 'category' && (
-        <div>
+        {searchBy === 'category' && (
           <Select
             value={option}
             required
@@ -64,11 +62,9 @@ const SearchBar = (props) => {
               </option>
             ))}
           </Select>
-        </div>
-      )}
+        )}
 
-      {searchBy === 'glass' && (
-        <div>
+        {searchBy === 'glass' && (
           <Select
             value={option}
             required
@@ -81,11 +77,9 @@ const SearchBar = (props) => {
               </option>
             ))}
           </Select>
-        </div>
-      )}
+        )}
 
-      {searchBy === 'alcoholic' && (
-        <div>
+        {searchBy === 'alcoholic' && (
           <Select
             value={option}
             required
@@ -98,11 +92,9 @@ const SearchBar = (props) => {
               </option>
             ))}
           </Select>
-        </div>
-      )}
+        )}
 
-      {searchBy === 'ingredient' && (
-        <div>
+        {searchBy === 'ingredient' && (
           <Select value={option} onChange={(e) => setOption(e.target.value)}>
             <option value="">Select an ingredient</option>
             {ingredients.map((option) => (
@@ -111,8 +103,8 @@ const SearchBar = (props) => {
               </option>
             ))}
           </Select>
-        </div>
-      )}
+        )}
+      </div>
       <Button>Fetch</Button>
     </form>
   );

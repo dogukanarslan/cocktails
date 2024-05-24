@@ -1,3 +1,13 @@
-.form > div + * {
-  margin-top: 10px;
+.inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .inputs {
+    flex-direction: row;
+    column-gap: 10px;
+  }
 }

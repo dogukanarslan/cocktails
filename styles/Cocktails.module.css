@@ -12,3 +12,10 @@
 .searchBar {
   margin-bottom: 20px;
 }
+
+.loadingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
