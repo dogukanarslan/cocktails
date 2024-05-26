@@ -1,0 +1,7 @@
+.form {
+  margin-bottom: 0.5rem;
+}
+
+.form > * {
+  margin-top: 0.5rem;
+}
