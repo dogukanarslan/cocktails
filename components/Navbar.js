@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import styles from 'styles/Navbar.module.css';
+import { Button } from './Button';
 
 const Navbar = () => (
   <nav className={styles.navbar}>
@@ -8,6 +9,7 @@ const Navbar = () => (
     <ul className={styles.nav}>
       <li>
         <Link href="/search">Search</Link>
+        <Link href="/random">Random</Link>
       </li>
     </ul>
   </nav>
