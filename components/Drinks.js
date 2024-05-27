@@ -17,6 +17,7 @@ export const Drinks = (props) => {
                 src={drink.strDrinkThumb}
                 alt="Drink image"
                 fill
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
             <div className={styles.cardBody}>
