@@ -15,9 +15,7 @@ const SearchPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = await (
-      await fetch(`${BASE_URL}/search.php/?s=${name}`)
-    ).json();
+    const data = await (await fetch(`/api/search/${name}`)).json();
     setDrinks(data.drinks);
   };
 
