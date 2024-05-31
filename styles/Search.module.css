@@ -2,6 +2,6 @@
   margin-bottom: 0.5rem;
 }
 
-.form > * {
+.form > * + * {
   margin-top: 0.5rem;
 }
