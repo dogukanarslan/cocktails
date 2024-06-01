@@ -5,8 +5,11 @@
   display: flex;
   align-items: center;
   color: #fff;
+  font-size: 0.875rem;
 }
 
 .nav {
   margin-left: 1rem;
+  display: flex;
+  column-gap: 0.5rem;
 }

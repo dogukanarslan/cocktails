@@ -9,6 +9,8 @@ const Navbar = () => (
     <ul className={styles.nav}>
       <li>
         <Link href="/search">Search</Link>
+      </li>
+      <li>
         <Link href="/random">Random</Link>
       </li>
     </ul>
