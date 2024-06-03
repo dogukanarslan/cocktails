@@ -73,6 +73,7 @@ const CocktailsPage = async (props) => {
           ingredients={ingredients.drinks}
         />
       </div>
+      <h1 className={styles.heading}>Total Drinks: {drinks.length}</h1>
       <div className={styles.drinksWrapper}>
         <Drinks drinks={drinks} />
       </div>
