@@ -3,7 +3,7 @@ import { BASE_URL } from '../../constants';
 import styles from 'styles/Random.module.css';
 
 const getData = async (id) => {
-  const res = await fetch(`${BASE_URL}/random.php`);
+  const res = await fetch(`${BASE_URL}/random.php`, { cache: 'no-cache' });
 
   return res.json();
 };
