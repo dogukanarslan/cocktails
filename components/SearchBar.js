@@ -38,10 +38,9 @@ const SearchBar = (props) => {
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.inputs}>
         <Select
-          id="searchBy"
           value={searchBy}
-          required
           onChange={(e) => changeFilter(e.target.value)}
+          required
         >
           <option value="category">Category</option>
           <option value="glass">Glass</option>
@@ -52,8 +51,8 @@ const SearchBar = (props) => {
         {searchBy === 'category' && (
           <Select
             value={option}
-            required
             onChange={(e) => setOption(e.target.value)}
+            required
           >
             <option value="">Select a category</option>
             {categories.map((category) => (
@@ -67,8 +66,8 @@ const SearchBar = (props) => {
         {searchBy === 'glass' && (
           <Select
             value={option}
-            required
             onChange={(e) => setOption(e.target.value)}
+            required
           >
             <option value="">Select a glass</option>
             {glasses.map((glass) => (
@@ -82,8 +81,8 @@ const SearchBar = (props) => {
         {searchBy === 'alcoholic' && (
           <Select
             value={option}
-            required
             onChange={(e) => setOption(e.target.value)}
+            required
           >
             <option value="">Select alcoholic option</option>
             {alcoholicOptions.map((option) => (
@@ -95,7 +94,11 @@ const SearchBar = (props) => {
         )}
 
         {searchBy === 'ingredient' && (
-          <Select value={option} onChange={(e) => setOption(e.target.value)}>
+          <Select
+            value={option}
+            onChange={(e) => setOption(e.target.value)}
+            required
+          >
             <option value="">Select an ingredient</option>
             {ingredients.map((option) => (
               <option key={option.strIngredient1} value={option.strIngredient1}>
