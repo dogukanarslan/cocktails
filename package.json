@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier . --write"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "next": "^14.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "prettier": "3.3.2"
   }
 }
