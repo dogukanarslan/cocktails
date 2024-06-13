@@ -7,6 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "format": "prettier . --write"
   },
   "keywords": [],
@@ -18,6 +19,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.4",
     "prettier": "3.3.2"
   }
 }
