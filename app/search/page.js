@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Button } from 'components/Button';
 import { Drinks } from 'components/Drinks';
 import { Input } from 'components/Input';
-import { BASE_URL } from 'constants';
 
 import styles from 'styles/Search.module.css';
 
